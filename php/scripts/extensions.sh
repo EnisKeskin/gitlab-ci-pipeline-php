@@ -132,7 +132,7 @@ elif [[ $PHP_VERSION == "7.4" || $PHP_VERSION == "7.3" ]]; then
 
   pecl channel-update pecl.php.net \
     && pecl install amqp redis apcu mongodb imagick xdebug-beta \
-    && docker-php-ext-enable amqp redis apcu mongodb imagick xdebug
+    && docker-php-ext-enable amqp.so redis.so apcu.so mongodb.so imagick.so xdebug
 
 else
   apt-get update && docker-php-ext-install -j$(nproc) mcrypt

@@ -8,7 +8,9 @@ image: docker:latest
 
 variables:
   DOCKER_DRIVER: overlay2
-  NAMESPACE: edbizarro/gitlab-ci-pipeline-php
+  NAMESPACE: themephlox/gitlab-ci-pipeline-php-7.1
+  CI_REGISTRY_USER: "themephlox"
+  CI_REGISTRY_PASSWORD: "@KZaH*v88i#!WqT"
 
 services:
   - docker:dind
