@@ -85,7 +85,7 @@ else
 
     docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) mcrypt
 
-    pecl install xdebug \
+    pecl install xdebug-2.9.8 \
       && docker-php-ext-enable xdebug
 fi
 
