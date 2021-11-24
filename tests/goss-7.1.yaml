@@ -20,6 +20,8 @@ command:
     exit-status: 0
   composer --version:
     exit-status: 0
+    stdout:
+      - "2."
   python --version:
     exit-status: 0
   make --version:
@@ -75,9 +77,6 @@ file:
   /usr/local/etc/php/conf.d/apcu-recommended.ini:
     exists: true
   /home/php:
-    exists: true
-    owner: php
-  /home/php/.composer:
     exists: true
     owner: php
   /home/php/.config:
