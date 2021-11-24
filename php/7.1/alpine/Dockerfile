@@ -28,8 +28,8 @@ WORKDIR /tmp
 
 COPY ./php/scripts/alpine/*.sh /tmp/
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-COPY --from=mhart/alpine-node:17 /usr/bin/node /usr/bin/
-COPY --from=mhart/alpine-node:17 /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/* /usr/lib/
+COPY --from=mhart/alpine-node:latest /usr/bin/node /usr/bin/
+COPY --from=mhart/alpine-node:latest /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/* /usr/lib/
 
 # COPY INSTALL SCRIPTS
 RUN chmod +x /tmp/*.sh \
