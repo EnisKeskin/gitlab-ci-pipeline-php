@@ -16,6 +16,7 @@ pdo_pgsql \
 pgsql \
 soap \
 xmlrpc \
+sockets \
 zip
 "
 
@@ -93,6 +94,7 @@ else
     && docker-php-ext-install -j$(nproc) $extensions \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-install -j "$(nproc)" sockets
     && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ \
     && docker-php-ext-install -j$(nproc) ldap \
     && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
