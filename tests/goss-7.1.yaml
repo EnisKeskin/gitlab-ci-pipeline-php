@@ -9,13 +9,13 @@ command:
   node --version:
     exit-status: 0
     stdout:
-      - "v12"
+      - "v16"
   yarn --version:
     exit-status: 0
   npm --version:
     exit-status: 0
     stdout:
-      - "6"
+      - "8.1"
   sudo npm --version:
     exit-status: 0
   composer --version:
