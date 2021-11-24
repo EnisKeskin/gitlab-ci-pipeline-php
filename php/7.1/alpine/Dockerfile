@@ -18,7 +18,7 @@ ENV IMAGE_USER=php
 ENV HOME=/home/$IMAGE_USER
 ENV COMPOSER_HOME=$HOME/.composer
 ENV PATH=$HOME/.yarn/bin:$PATH
-ENV GOSS_VERSION=0.3.8
+ENV GOSS_VERSION=0.3.16
 ENV NODE_VERSION=17
 ENV NPM_VERSION=6
 ENV YARN_VERSION=latest
@@ -39,7 +39,6 @@ RUN chmod +x /tmp/*.sh \
   && bash ./packages.sh \
   && bash ./extensions.sh \
   && bash ./nodeyarn.sh \
-#  && composer global require "hirak/prestissimo:^0.3" \
   && rm -rf ~/.composer/cache/* \
   && chown -R $IMAGE_USER:$IMAGE_USER /var/www $HOME \
   && echo "$IMAGE_USER  ALL = ( ALL ) NOPASSWD: ALL" >> /etc/sudoers \
