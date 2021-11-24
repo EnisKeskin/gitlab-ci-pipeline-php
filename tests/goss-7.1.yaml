@@ -15,7 +15,7 @@ command:
   npm --version:
     exit-status: 0
     stdout:
-      - "8.1.4"
+      - "7.19.1"
   sudo npm --version:
     exit-status: 0
   composer --version:
