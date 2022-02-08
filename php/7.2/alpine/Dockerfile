@@ -3,15 +3,9 @@ FROM php:7.2-alpine
 ARG BUILD_DATE
 ARG VCS_REF
 
-LABEL maintainer="Eduardo Bizarro <edbizarro@gmail.com>" \
+LABEL maintainer="Theme <enis@itsmoneo.com>" \
   PHP="7.2" \
-  NODE="14" \
-  org.label-schema.name="edbizarro/gitlab-ci-pipeline-php" \
-  org.label-schema.description=":coffee: Docker images for build and test PHP applications with Gitlab CI (or any other CI plataform!)" \
-  org.label-schema.build-date=$BUILD_DATE \
-  org.label-schema.schema-version="1.0" \
-  org.label-schema.vcs-url="https://github.com/edbizarro/gitlab-ci-pipeline-php" \
-  org.label-schema.vcs-ref=$VCS_REF
+  NODE="17"
 
 # Set correct environment variables
 ENV IMAGE_USER=php
@@ -19,7 +13,7 @@ ENV HOME=/home/$IMAGE_USER
 ENV COMPOSER_HOME=$HOME/.composer
 ENV PATH=$HOME/.yarn/bin:$PATH
 ENV GOSS_VERSION="0.3.8"
-ENV NODE_VERSION="12"
+ENV NODE_VERSION="17"
 ENV NPM_VERSION=6
 ENV YARN_VERSION=latest
 ENV PHP_VERSION=7.2
@@ -28,8 +22,8 @@ WORKDIR /tmp
 
 COPY ./php/scripts/alpine/*.sh /tmp/
 COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
-COPY --from=mhart/alpine-node:12 /usr/bin/node /usr/bin/
-COPY --from=mhart/alpine-node:12 /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/* /usr/lib/
+COPY --from=mhart/alpine-node:17 /usr/bin/node /usr/bin/
+COPY --from=mhart/alpine-node:17 /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/* /usr/lib/
 
 # COPY INSTALL SCRIPTS
 RUN chmod +x /tmp/*.sh \
