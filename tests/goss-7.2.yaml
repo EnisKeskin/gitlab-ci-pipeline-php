@@ -84,7 +84,7 @@ file:
     exists: true
     owner: php
   /home/php/.config:
-    exists: true
+    exists: false
     owner: php
 
 user:
