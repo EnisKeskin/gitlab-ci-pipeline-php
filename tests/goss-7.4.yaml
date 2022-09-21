@@ -9,13 +9,13 @@ command:
   node --version:
     exit-status: 0
     stdout:
-      - "v12"
+      - "v16.4.2"
   yarn --version:
     exit-status: 0
   npm --version:
     exit-status: 0
     stdout:
-      - "6"
+      - "7"
   sudo npm --version:
     exit-status: 0
   composer --version:
@@ -84,7 +84,7 @@ file:
     exists: true
     owner: php
   /home/php/.config:
-    exists: true
+    exists: false
     owner: php
 
 user:
