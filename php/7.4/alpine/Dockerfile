@@ -5,7 +5,7 @@ ARG VCS_REF
 
 LABEL maintainer="Eduardo Bizarro <edbizarro@gmail.com>" \
   PHP="7.4" \
-  NODE="16.13.2" \
+  NODE="16.18" \
   org.label-schema.name="edbizarro/gitlab-ci-pipeline-php" \
   org.label-schema.description=":coffee: Docker images for build and test PHP applications with Gitlab CI (or any other CI plataform!)" \
   org.label-schema.build-date=$BUILD_DATE \
@@ -19,7 +19,7 @@ ENV HOME=/home/$IMAGE_USER
 ENV COMPOSER_HOME=$HOME/.composer
 ENV PATH=$HOME/.yarn/bin:$PATH
 ENV GOSS_VERSION=0.3.8
-ENV NODE_VERSION=16.13.2
+ENV NODE_VERSION=16.18
 ENV NPM_VERSION=8.1.2
 ENV YARN_VERSION=latest
 ENV PHP_VERSION=7.4
@@ -28,8 +28,8 @@ WORKDIR /tmp
 
 COPY ./php/scripts/alpine/*.sh /tmp/
 COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
-COPY --from=node:16.13.2-alpine /usr/bin/node /usr/bin/
-COPY --from=node:16.13.2-alpine /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/* /usr/lib/
+COPY --from=jellydn/alpine-nodejs:16.18 /usr/bin/node /usr/bin/
+COPY --from=jellydn/alpine-nodejs:16.18 /usr/lib/libgcc* /usr/lib/libstdc* /usr/lib/* /usr/lib/
 
 # COPY INSTALL SCRIPTS
 RUN chmod +x /tmp/*.sh \
