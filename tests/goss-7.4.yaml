@@ -67,7 +67,6 @@ command:
       - xmlrpc
       - zip
       - xsl
-      - mongodb
 
 file:
   /usr/local/etc/php/conf.d/zz-conf.ini:
