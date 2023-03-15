@@ -74,6 +74,20 @@ Alpine 7.4:
     - docker push $NAMESPACE:alpine
   when: always
 
+Alpine 7.4.1:
+  stage: build
+  variables:
+    IMAGE_VERSION: "7.4.1-alpine"
+  script:
+    - docker pull php:$IMAGE_VERSION || true
+    - docker pull $NAMESPACE:$IMAGE_VERSION || true
+    - docker build --compress --cache-from $NAMESPACE:$IMAGE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$IMAGE_VERSION -f php/7.4/alpine/Dockerfile .
+    - docker run -t --rm -v $(pwd):/var/www/html $NAMESPACE:$IMAGE_VERSION goss -g tests/goss-7.4.yaml v
+    - docker tag $NAMESPACE:$IMAGE_VERSION $NAMESPACE:alpine
+    - docker push $NAMESPACE:$IMAGE_VERSION
+    - docker push $NAMESPACE:alpine
+  when: always
+
 Alpine 7.4 LTS:
   stage: build
   variables:
